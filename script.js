@@ -6,6 +6,7 @@ const watchlist = document.getElementById('watchlist');
 const USERS_KEY = 'users';
 
 var watchlistMovies = JSON.parse(localStorage.getItem('watchlist')) || [];
+var users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 
 async function search(query) {
     const response = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);
@@ -107,8 +108,6 @@ async function printDetails() {
 if (window.location.pathname.endsWith('details.html')) {
     printDetails();
 }
-
-var users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 
 document.getElementById('login-form')?.addEventListener('submit', function(e) {
     e.preventDefault();
