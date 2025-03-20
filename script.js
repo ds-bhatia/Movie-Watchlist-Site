@@ -4,7 +4,7 @@ const searchBtn = document.getElementById('search-btn');
 const searchResults = document.getElementById('search-results');
 const watchlist = document.getElementById('watchlist');
 
-let watchlistMovies = JSON.parse(localStorage.getItem('watchlist')) || [];
+var watchlistMovies = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 async function search(query) {
   const response = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);
