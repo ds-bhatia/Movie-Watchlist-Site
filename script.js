@@ -3,6 +3,7 @@ const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 const searchResults = document.getElementById('search-results');
 const watchlist = document.getElementById('watchlist');
+const USERS_KEY = 'users';
 
 var watchlistMovies = JSON.parse(localStorage.getItem('watchlist')) || [];
 
@@ -107,8 +108,7 @@ if (window.location.pathname.endsWith('details.html')) {
     printDetails();
 }
 
-const USERS_KEY = 'users';
-let users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+var users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 
 document.getElementById('login-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
