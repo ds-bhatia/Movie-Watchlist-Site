@@ -69,14 +69,12 @@ function removeFromWatchlist(imdbID) {
     printWatch();
 }
 
-if (searchBtn) {
-    searchBtn.addEventListener('click', async function() {
+async function press() {
         const query = searchInput.value.trim();
         if (query) {
             const movies = await search(query);
             printSearch(movies);
         }
-    });
 }
 
 printWatch();
