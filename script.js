@@ -109,7 +109,7 @@ if (window.location.pathname.endsWith('details.html')) {
     printDetails();
 }
 
-document.getElementById('login-form')?.addEventListener('submit', function(e) {
+function login(e){
     e.preventDefault();
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
@@ -123,9 +123,9 @@ document.getElementById('login-form')?.addEventListener('submit', function(e) {
     } else {
         document.getElementById('login-error').style.display = 'block';
     }
-});
+};
 
-document.getElementById('signup-form')?.addEventListener('submit', function(e) {
+function register(e) {
     e.preventDefault();
     const username = document.getElementById('signup-username').value;
     const password = document.getElementById('signup-password').value;
@@ -141,4 +141,4 @@ document.getElementById('signup-form')?.addEventListener('submit', function(e) {
         document.getElementById('signup-success').style.display = 'block';
         document.getElementById('signup-error').style.display = 'none';
     }
-});
+};
