@@ -1,23 +1,33 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #000;
-    color: #00ff00;
-    margin: 0;
-    padding: 0;
-    background-image: url('matrix.JPG');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid #00ff00;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-  }
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000;
+  color: #00ff00;
+  margin: 0;
+  padding: 0;
+}
+
+#video-background {
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+}
 
 h1, h2 {
   text-align: center;
@@ -106,19 +116,19 @@ h1, h2 {
   color: #000;
 }
 
-link{
+.link {
   margin-top: 20px;
   text-align: center;
 }
 
-.link a{
+.link a {
   color: #00ff00;
   text-decoration: none;
   border: 1px solid #00ff00;
   padding: 5px 10px;
 }
 
-.link a:hover{
+.link a:hover {
   background-color: #00ff00;
   color: #000;
 }
