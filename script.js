@@ -15,7 +15,7 @@ async function search(query) {
 
 function printSearch(movies) {
     searchResults.innerHTML = '';
-    movies.forEach(movie => {
+    movies.forEach(function(movie) {
         const movieCard = document.createElement('div');
         movieCard.classList.add('movie-card');
         movieCard.innerHTML = `
@@ -62,13 +62,15 @@ async function fetchMovieDetails(imdbID) {
 }
 
 function removeFromWatchlist(imdbID) {
-    watchlistMovies = watchlistMovies.filter(id => id !== imdbID);
+    watchlistMovies = watchlistMovies.filter(function(id) {
+        return id !== imdbID;
+    });
     localStorage.setItem('watchlist', JSON.stringify(watchlistMovies));
     printWatch();
 }
 
 if (searchBtn) {
-    searchBtn.addEventListener('click', async () => {
+    searchBtn.addEventListener('click', async function() {
         const query = searchInput.value.trim();
         if (query) {
             const movies = await search(query);
@@ -110,11 +112,13 @@ if (window.location.pathname.endsWith('details.html')) {
 
 var users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 
-document.getElementById('login-form')?.addEventListener('submit', function (e) {
+document.getElementById('login-form')?.addEventListener('submit', function(e) {
     e.preventDefault();
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
-    const user = users.find(u => u.username === username && u.password === password);
+    const user = users.find(function(u) {
+        return u.username === username && u.password === password;
+    });
 
     if (user) {
         alert('Login successful!');
@@ -124,11 +128,13 @@ document.getElementById('login-form')?.addEventListener('submit', function (e) {
     }
 });
 
-document.getElementById('signup-form')?.addEventListener('submit', function (e) {
+document.getElementById('signup-form')?.addEventListener('submit', function(e) {
     e.preventDefault();
     const username = document.getElementById('signup-username').value;
     const password = document.getElementById('signup-password').value;
-    const userExists = users.some(u => u.username === username);
+    const userExists = users.some(function(u) {
+        return u.username === username;
+    });
 
     if (userExists) {
         document.getElementById('signup-error').style.display = 'block';
